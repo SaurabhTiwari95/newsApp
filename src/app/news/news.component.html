@@ -1,0 +1,27 @@
+<div class="centerDiv" *ngIf="newsItem.length < 20">
+  <div class="loader">
+  </div>
+</div>
+  <div class="container" *ngIf="newsItem.length == 20">
+    <h1>Hacker News</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Title</th>
+          <th>Time</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of newsItem;let i = index">
+          <td>
+            {{i+1}}
+          </td>
+          <td>{{item.title}} </td>
+          <td> {{item.time*1000 | date :'EEEE, MMMM d, y' }} </td>
+          <td><a href={{item.url}} target="_blank">{{item.url}}</a> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
